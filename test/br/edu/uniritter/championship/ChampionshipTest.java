@@ -23,7 +23,7 @@ public class ChampionshipTest {
         teams.add(new Team("México"));
         teams.add(new Team("Cróacia"));
         teams.add(new Team("Camarões"));
-        
+
         matches = new LinkedList();
         matches.add(new Match(teams.get(0), teams.get(1), 3, 1));
         matches.add(new Match(teams.get(0), teams.get(2), 3, 1));
@@ -31,18 +31,18 @@ public class ChampionshipTest {
         matches.add(new Match(teams.get(1), teams.get(2), 3, 1));
         matches.add(new Match(teams.get(1), teams.get(3), 3, 1));
         matches.add(new Match(teams.get(2), teams.get(3), 3, 1));
-        
+
         championship = new Championship(teams, matches);
     }
- 
+
     @Test
     public void testFirstTeamIsBrasil() {
-        assertEquals(teams.get(0).getName(), championship.getFirstTeam().getName());
+        assertEquals(teams.get(0), championship.getFirstTeam());
     }
 
     @Test
     public void testSecondTeamIsMexico() {
-        assertEquals(teams.get(1).getName(), championship.getSecondTeam().getName());
+        assertEquals(teams.get(1), championship.getSecondTeam());
     }
 
     @Test
