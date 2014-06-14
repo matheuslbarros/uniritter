@@ -10,6 +10,10 @@ public class Triangulo extends Figura {
     private final double ladoB;
     private final double ladoC;
 
+    public enum Tipo {
+        EQUILATERO, ISOCELES, ESCALENO;
+    }
+
     public Triangulo(double ladoA, double ladoB, double ladoC) {
         this.ladoA = ladoA;
         this.ladoB = ladoB;
@@ -35,19 +39,23 @@ public class Triangulo extends Figura {
         return semiPerimetro * (semiPerimetro - ladoA) * (semiPerimetro - ladoB) * (semiPerimetro - ladoC);
     }
 
-    public TipoTriangulo retornaTipoTriangulo() {
+    public Tipo retornaTipo() {
+        Tipo tipo;
+        
         boolean ab = (ladoA == ladoB);
         boolean ac = (ladoA == ladoC);
         boolean bc = (ladoB == ladoC);
         
         if (ab && ac && bc) {
-            return TipoTriangulo.EQUILATERO;
+            tipo = Tipo.EQUILATERO;
         } else
         if (ab || ac || bc) {
-            return TipoTriangulo.ISOCELES;
+            tipo = Tipo.ISOCELES;
         } else {
-            return TipoTriangulo.ESCALENO;
+            tipo = Tipo.ESCALENO;
         }
+        
+        return tipo;
     }
 
 }

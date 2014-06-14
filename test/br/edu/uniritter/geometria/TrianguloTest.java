@@ -1,7 +1,5 @@
 package br.edu.uniritter.geometria;
 
-import br.edu.uniritter.geometria.Triangulo;
-import br.edu.uniritter.geometria.TipoTriangulo;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,18 +30,25 @@ public class TrianguloTest {
     @Test
     public void testaTipoTrianguloEquilatero() {
         triangulo = new Triangulo(3, 3, 3);
-        assertEquals(TipoTriangulo.EQUILATERO, triangulo.retornaTipoTriangulo());
+        assertEquals(Triangulo.Tipo.EQUILATERO, triangulo.retornaTipo());
     }
 
     @Test
     public void testaTipoTrianguloIsoceles() {
+        triangulo = new Triangulo(3, 3, 5);
+        assertEquals(Triangulo.Tipo.ISOCELES, triangulo.retornaTipo());
+        
         triangulo = new Triangulo(3, 5, 3);
-        assertEquals(TipoTriangulo.ISOCELES, triangulo.retornaTipoTriangulo());
+        assertEquals(Triangulo.Tipo.ISOCELES, triangulo.retornaTipo());
+        
+        triangulo = new Triangulo(5, 3, 3);
+        assertEquals(Triangulo.Tipo.ISOCELES, triangulo.retornaTipo());
     }
 
     @Test
     public void testaTipoTrianguloEscaleno() {
         triangulo = new Triangulo(3, 4, 5);
-        assertEquals(TipoTriangulo.ESCALENO, triangulo.retornaTipoTriangulo());
+        assertEquals(Triangulo.Tipo.ESCALENO, triangulo.retornaTipo());
     }
+
 }

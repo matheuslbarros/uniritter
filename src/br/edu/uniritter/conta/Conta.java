@@ -22,11 +22,11 @@ public abstract class Conta {
         return saldo;
     }
 
-    public void deposita(float quantia) {
+    public void deposita(double quantia) {
         this.saldo += quantia;
     }
 
-    public void saca(float quantia) throws Exception {
+    public void saca(double quantia) throws Exception {
         if (quantia > this.saldo) {
             throw new Exception("Saque negado, quantia maior que saldo!");
         }
@@ -34,7 +34,7 @@ public abstract class Conta {
         this.saldo -= quantia;
     }
 
-    public void transfere(float quantia, Conta contaDestino) throws Exception {
+    public void transfere(double quantia, Conta contaDestino) throws Exception {
         saca(quantia);
         contaDestino.deposita(quantia);
     }
