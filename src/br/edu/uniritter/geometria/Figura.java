@@ -1,4 +1,4 @@
-package br.edu.uniritter.figura;
+package br.edu.uniritter.geometria;
 
 /**
  *
