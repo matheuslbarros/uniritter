@@ -3,6 +3,9 @@ package br.edu.uniritter.primo;
 import java.util.LinkedList;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -10,6 +13,13 @@ import org.junit.Test;
  * @author alu201011612
  */
 public class PrimoTest {
+
+    private Primo primo;
+
+    @Before
+    public void setUp() {
+        primo = new Primo();
+    }
 
     @Test
     public void recebeDoisInteirosRetornandoOsNumerosPrimosDesteIntervalo() {
@@ -19,9 +29,16 @@ public class PrimoTest {
         primosExpected.add(5);
         primosExpected.add(7);
         
-        Primo primo = new Primo();
-        List<Integer> primos = primo.retornaNumerosPrimosDoIntervalo(1, 10);
-        
-        assertEquals(primosExpected, primos);
+        assertEquals(primosExpected, primo.retornaNumerosPrimosDoIntervalo(1, 10));
+    }
+
+    @Test
+    public void verificaSeCincoEhPrimo() {
+        assertTrue(primo.retornaSeNumeroEhPrimo(5));
+    }
+
+    @Test
+    public void verificaSeSeisNaoEhPrimo() {
+        assertFalse(primo.retornaSeNumeroEhPrimo(6));
     }
 }

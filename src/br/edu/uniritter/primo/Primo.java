@@ -9,11 +9,11 @@ import java.util.List;
  */
 class Primo {
 
-    public List<Integer> retornaNumerosPrimosDoIntervalo(int numeroInicial, int numeroFinal) {
+    public List<Integer> retornaNumerosPrimosDoIntervalo(Integer numeroInicial, Integer numeroFinal) {
         List<Integer> primos = new LinkedList();
         
         for(int i = ++numeroInicial; i < numeroFinal; i++) {
-            if (isPrimo(i)) {
+            if (retornaSeNumeroEhPrimo(i)) {
                 primos.add(i);
             }
         }
@@ -21,7 +21,7 @@ class Primo {
         return primos;
     }
 
-    private boolean isPrimo(int numero) {
+    public boolean retornaSeNumeroEhPrimo(Integer numero) {
         for(int i = 2; i < numero; i++) {
             if (numero % i == 0) {
                 return false;
