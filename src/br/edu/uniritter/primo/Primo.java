@@ -22,11 +22,12 @@ class Primo {
     }
 
     public boolean retornaSeNumeroEhPrimo(Integer numero) {
-        for(int i = 2; i < numero; i++) {
+        for(int i = 2; i <= Math.sqrt(numero); i++) {
             if (numero % i == 0) {
                 return false;
             }
         }
+        
         return true;
     }
 
