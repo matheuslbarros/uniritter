@@ -13,12 +13,12 @@ public class Testador implements Cargo {
 
     @Override
     public double getDescontoMaximo() {
-        return 25;
+        return 0.75;
     }
 
     @Override
     public double getDescontoMinimo() {
-        return 15;
+        return 0.85;
     }
 
 }

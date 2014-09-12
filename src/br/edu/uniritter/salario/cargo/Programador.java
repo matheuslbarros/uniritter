@@ -13,12 +13,12 @@ public class Programador implements Cargo {
 
     @Override
     public double getDescontoMaximo() {
-        return 20;
+        return 0.8;
     }
 
     @Override
     public double getDescontoMinimo() {
-        return 10;
+        return 0.9;
     }
 
 }

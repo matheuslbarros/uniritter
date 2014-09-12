@@ -6,12 +6,16 @@ package br.edu.uniritter.salario;
  */
 public class CalculoDescontoSalario {
 
-    public double getDesconto(Funcionario funcionario) {
+    public double getSalarioComDesconto(Funcionario funcionario) {
+        double desconto;
+        
         if (funcionario.getSalario() > funcionario.getCargo().getSalarioMaximo()) {
-            return funcionario.getCargo().getDescontoMaximo();
+            desconto = funcionario.getCargo().getDescontoMaximo();
         } else {
-            return funcionario.getCargo().getDescontoMinimo();
+            desconto = funcionario.getCargo().getDescontoMinimo();
         }
+        
+        return funcionario.getSalario() * desconto;
     }
 
 }
