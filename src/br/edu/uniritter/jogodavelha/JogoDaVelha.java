@@ -7,25 +7,23 @@ package br.edu.uniritter.jogodavelha;
 class JogoDaVelha {
 
     private int[][] matriz = new int[3][3];
+    private int jogadas = 0;
 
-    private int jogador = 0;
-    public void marca(int jogador, int coluna, int linha) throws Exception {
+    public void marca( int coluna, int linha) throws Exception {
         if (matriz[coluna][linha] == 0) {
-            if(this.jogador == jogador){
-                throw new Exception("Já jogou!");
-            }
-            matriz[coluna][linha] = jogador;
-            this.jogador = jogador;
-        }else{
+            jogadas++;
+            matriz[coluna][linha] = getJogador();
+        } else {
             throw new Exception("Já marcado!");
-        }
-        
-        
-        
+        }        
     }
 
     public int[][] getMatriz() {
         return matriz;
+    }
+
+    private int getJogador() {
+        return jogadas % 2 == 0 ? 2 : 1;
     }
 
 }
