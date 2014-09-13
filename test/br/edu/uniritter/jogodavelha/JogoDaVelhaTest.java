@@ -33,5 +33,12 @@ public class JogoDaVelhaTest {
         jogoDaVelha.marca(JOGADOR_UM, 0, 0);
         jogoDaVelha.marca(JOGADOR_DOIS, 0, 0);
     }
+    
+    @Test(expected = Exception.class)
+    public void testaMesmoJogador() throws Exception{
+        jogoDaVelha.marca(JOGADOR_UM, 0, 0);
+        jogoDaVelha.marca(JOGADOR_UM, 1, 0);
+        
+    }
 
 }
