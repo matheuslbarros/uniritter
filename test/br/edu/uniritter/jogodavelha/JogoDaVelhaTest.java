@@ -1,6 +1,7 @@
 package br.edu.uniritter.jogodavelha;
 
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -9,19 +10,17 @@ import org.junit.Test;
  */
 public class JogoDaVelhaTest {
 
-    public static int JOGADOR_UM = 1;
-    public static int JOGADOR_DOIS = 2;
-
     JogoDaVelha jogoDaVelha = new JogoDaVelha();
-    
+
     @Test
     public void testaMarcaColuna1Linha1() throws Exception {
         int[][] expected = {
-            { JOGADOR_UM, 0, 0 },
+            { 1, 0, 0 },
             { 0, 0, 0 },
             { 0, 0, 0 }
         };
         
+        jogoDaVelha.zerar();
         jogoDaVelha.marca(0, 0);
         
         Assert.assertArrayEquals(expected, jogoDaVelha.getMatriz());
@@ -29,20 +28,41 @@ public class JogoDaVelhaTest {
 
     @Test(expected = Exception.class)
     public void testaJamarcado() throws Exception {
+        jogoDaVelha.zerar();
         jogoDaVelha.marca(0, 0);
         jogoDaVelha.marca(0, 0);
     }
 
-      @Test
+    @Test
     public void testaMarcaDoisJogadores() throws Exception {
         int[][] expected = {
-            { JOGADOR_UM, 0, 0 },
-            { JOGADOR_DOIS, 0, 0 },
+            { 1, 2, 0 },
+            { 0, 0, 0 },
             { 0, 0, 0 }
         };
         
+        jogoDaVelha.zerar();
         jogoDaVelha.marca(0, 0);
         jogoDaVelha.marca(1, 0);
+        
+        Assert.assertArrayEquals(expected, jogoDaVelha.getMatriz());
+    }
+
+    @Test
+    public void testaPrimeiraLinha() throws Exception {
+        int[][] expected = {
+            { 1, 1, 1 },
+            { 2, 2, 0 },
+            { 0, 0, 0 }
+        };
+        
+        jogoDaVelha.zerar();
+        jogoDaVelha.marca(0, 0);
+        jogoDaVelha.marca(0, 1);
+        jogoDaVelha.marca(1, 0);
+        jogoDaVelha.marca(1, 1);
+        jogoDaVelha.marca(2, 0);
+        
         Assert.assertArrayEquals(expected, jogoDaVelha.getMatriz());
     }    
     
